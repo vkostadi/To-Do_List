@@ -5,10 +5,6 @@ const bodyParser = require("body-parser");
 // const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-const dotenv = require("dotenv").config();
-
-const dbUsr = process.env.DB_USR;
-const dbPass = process.env.DB_PASS;
 
 const app = express();
 
