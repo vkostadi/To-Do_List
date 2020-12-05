@@ -2,18 +2,20 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-// const date = require(__dirname + "/date.js");
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 
 const app = express();
+
+dotenv.config();
 
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://DB_USR:DB_PASS@cluster0.y7nsh.mongodb.net/todolistDB?retryWrites=true&w=majority", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://process.env.DB_USR:process.env.DB_PASS@cluster0.y7nsh.mongodb.net/todolistDB?retryWrites=true&w=majority", {useNewUrlParser: true});
 
 const itemSchema = new mongoose.Schema({
   name: String
